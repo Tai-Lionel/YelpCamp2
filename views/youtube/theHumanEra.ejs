@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Human Era</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url('https://images.unsplash.com/photo-1542159919831-40fb0656b45a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+    }
+</style>
+
+<body>
+    <iframe id="player" width="1%" height="1%" src="https://www.youtube.com/embed/-IgMUPZ_Ekc?autoplay=1"
+        title="The Human Era – Soundtrack (2020)" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen autoplay></iframe>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            console.log("DOM fully loaded and parsed");
+            setTimeout(() => {
+                console.log(player.children)
+            }, 5000)
+        });
+    </script>
+</body>
+
+</html>

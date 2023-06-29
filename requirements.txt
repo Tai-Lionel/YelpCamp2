@@ -1,0 +1,100 @@
+------------------------------------------------------------------------------
+Campground CRUD
+1.
+- create basic express app
+2.
+- create basic models
+3. 
+- create seeding 
+4.
+- create index route
+5. 
+- create show route
+6. 
+- create new & create routes
+7.
+- create edit & update routes
+8.
+- create delete route
+
+| NAME   | PATH               | VERB   | PURPOSE                            |
+| ---    | ---                | ---    | ---                                |
+| Index  | /campgrounds          | GET    | Display all comments               |
+| New    | /campgrounds/new      | GET    | Form to create new comment         |
+| Create | /campgrounds          | POST   | Create new comment on server       |
+| Show   | /campgrounds/:id      | GET    | Details for one specific comment   |
+| Edit   | /campgrounds/:id/edit | GET    | Form to edit specific comment      |
+| Update | /campgrounds/:id      | PATCH  | Updates specific comment on server |
+| Delete | /campgrounds/:id      | DELETE | Delete specific item on server     |
+
+----------------------------------------------------------------
+Adding basic styles
+1. 
+- install ejs mate
+- everthing in the middle called body
+- create a layouts folder that contains a file called boilerplate.ejs
+- use that file/layout in my main ejs files using layout function
+2.
+- include bootstrap in my boilerplate
+- wrap body inside a main tag with a class of container
+3.
+- create a nav bar inside of my boilerplate.ejs
+- change it to make it have a dark background, sticky nav and a margin top
+- move that nav bar into a new file in a new folder called partials (to make the boilderplate clean)
+4.
+- create a footer inside of my boilerplate.ejs
+- change it to make it have dark background, padding of 3, a div that contains a span with the C YelpCamp 2023 text in it, make the text bright(text - muted)
+- move that footer into a new file in the partials folder
+- make it always stay at the bottom by make the body a flex box, column and the footer have class of auto-t
+5. 
+- add image to the model, change price to Number
+- seed new data to the database
+- display image on show pages
+6.  
+- change index page so that every campground has an image with title and description on it using a class named "card" in bootstrap
+- follow along with the video 438 if it is too hard
+7. styling edit page
+8. styling show page
+
+-----------------------------------------------------------------------------
+Erors & Validate Data
+1. 
+- Client - Side Form Validations using Bootstrap Form Validation
+2
+- define ExpressError Class and catchAsync function 
+    + non-error middleware functions does not have access to the err object (req, res, next)
+    + so, in order to pass err with my information, we need to define our new err (err.message, err.statusCode that extends from built-in Error class)
+3
+- define error template
+
+4  
+- validate data in the back end using joi
+
+-------------------------------------------------------------------------------
+Adding the Review model
+- it all comes down to the fact that different data structures, different algorithms
+
+--------------------------------------------------------------------------------
+Restructuring routes and integrate flash
+- it all comes down to middleware - functions that have access to req, res and can modify them
+- tricky stuff:
++ separate routes -> require libraries and files || solutions: just do it and fix errors if any based on error message on the terminal
+
+----------------------------------------------------------------------------------
+Adding in authentication 
+- notion
+- it is all about session 
++ which is which
++ truyen thong tin tu mot cai get/post/put/delete to another get/post/put/delete
+------------------------------------------------------------------------------------
+Authorization
+- Adding an author to campground
++ require login before require user
+- Showing and Hiding Edit/Delete
+- Campground Permissions 
++ just hiding is not enough
++ make sure they cannot send that request 
+- Authorization middleware
+- Review Permissions: You have to be logged in to see the form and create a new review + you can only delete your reviews
+- More Reviews Authorization: hide + make sure
++ tips: try the back end by temparily disable the front end "hide"
