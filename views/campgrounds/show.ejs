@@ -8,7 +8,7 @@
                             <% for (let image of campground.images) { %>
                                 <div class="carousel-item <%= count===0?'active':'' %>">
                                         <img src="<%= image.path.replace('/upload', '/upload/c_fill,h_600,w_700') %>"
-                                            class="w-100 module" alt="campground">
+                                            class="w-100 br-5" alt="campground">
                                 </div>
                                 <% count++ %>
                                     <% } %>
@@ -50,17 +50,18 @@
                         </p>
                         <% if (currentUser) {%>
                             <% if (currentUser._id.equals(campground.author._id)) { %>
-                                <a href="/campgrounds/<%=campground._id%>/edit" class="btn btn-success block">Edit</a>
+                                <a href="/campgrounds/<%=campground._id%>/edit" class="btn btn-success box-shadow-intense">Edit</a>
                                 <form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST"
                                     class="d-inline">
-                                    <button type="submit" class="btn btn-danger block">Delete</button>
+                                    <button type="submit" class="btn btn-danger box-shadow-intense">Delete</button>
                                 </form>
                                 <% } %>
                                     <% } %>
                     </div>
                 </div>
             </div>
-            <div class="row p-0 mt-3">
+            </div>
+            <div class="row mt-3">
                 <h3 class="mb-3">Reviews</h3>
                 <% if (currentUser) { %>
                     <div class="col-12">
@@ -100,10 +101,13 @@
                                     </div>
                                 </div>
                                 <!-- Change starability-basic to different class to see animations. -->
-                                <button class="btn btn-primary block">Save</button>
+                                <button class="btn btn-primary box-shadow-intense">Save</button>
                             </form>
                         </div>
                         <% } %>
+                        <% if (!currentUser) { %>
+                            <p>You need to log in to make a new review</p>
+                            <% } %>
                             <% for (let review of campground.reviews) { %>
                                 <div class="card module my-2">
                                     <div class="card-body">
@@ -120,7 +124,7 @@
                                             <form
                                                 action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE"
                                                 method="POST">
-                                                <button class="btn btn-sm btn-danger block">Delete</button>
+                                                <button class="btn btn-sm btn-danger box-shadow-intense">Delete</button>
                                             </form>
                                             <% } %>
                                     </div>
