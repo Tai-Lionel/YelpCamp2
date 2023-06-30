@@ -73,8 +73,8 @@ map.on('load', function () {
         paint: {
             'circle-color': '#11b4da',
             'circle-radius': 4,
-            'circle-stroke-width': 10,
-            'circle-stroke-color': '#fff'
+            'circle-stroke-width': 7,
+            'circle-stroke-color': '#222'
         }
     });
 

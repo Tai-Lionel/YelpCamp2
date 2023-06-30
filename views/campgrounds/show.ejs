@@ -60,12 +60,11 @@
                     </div>
                 </div>
             </div>
-            <hr class="my-5">
-            <div class="row">
-                <h5>Reviews</h5>
+            <div class="row p-0 mt-3">
+                <h3 class="mb-3">Reviews</h3>
                 <% if (currentUser) { %>
                     <div class="col-12">
-                        <div class="card p-0">
+                        <div class="card border border-secondary p-0">
                             <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" novalidate
                                 class="needs-validation card-body">
                                 <div class="mb-2">
@@ -94,19 +93,19 @@
                                 </div>
                                 <div class="mb-2">
                                     <label for="content" class="my-2">Comments</label>
-                                    <textarea name="reviews[content]" class="form-control" id="content" cols="30"
+                                    <textarea name="reviews[content]" class="form-control review-textArea" id="content" cols="30"
                                         rows="3" required></textarea>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <!-- Change starability-basic to different class to see animations. -->
-                                <button class="btn btn-primary">Save</button>
+                                <button class="btn btn-primary block">Save</button>
                             </form>
                         </div>
                         <% } %>
                             <% for (let review of campground.reviews) { %>
-                                <div class="card my-2">
+                                <div class="card module my-2">
                                     <div class="card-body">
                                         <p class="card-title fw-bold">
                                             <%= review.author.username %>
@@ -121,7 +120,7 @@
                                             <form
                                                 action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE"
                                                 method="POST">
-                                                <button class="btn btn-sm btn-danger">Delete</button>
+                                                <button class="btn btn-sm btn-danger block">Delete</button>
                                             </form>
                                             <% } %>
                                     </div>
