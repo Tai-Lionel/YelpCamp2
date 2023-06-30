@@ -1,14 +1,14 @@
 <% layout('layouts/boilerplate') %>
-    <div class="container p-5">
+    <div class="container p-lg-5 mt-3 mt-lg-0">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-7">
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <% let count=0 %>
                             <% for (let image of campground.images) { %>
                                 <div class="carousel-item <%= count===0?'active':'' %>">
-                                    <img src="<%= image.path.replace('/upload', '/upload/c_white,c_pad,h_700,w_700') %>"
-                                        class="w-100 img-thumbnail" alt="campground">
+                                        <img src="<%= image.path.replace('/upload', '/upload/c_fill,h_600,w_700') %>"
+                                            class="w-100 module" alt="campground">
                                 </div>
                                 <% count++ %>
                                     <% } %>
@@ -27,9 +27,9 @@
                         <% } %>
                 </div>
             </div>
-            <div class="offset-lg-1 col-lg-5">
-                <div id='mapjs' style="width: 100%; height: 300px" class="mb-3"></div>
+            <div class="offset-lg-1 col-lg-4 mt-3 mt-lg-0">
                 <div class="card">
+                    <div id='mapjs' style="width: 100%; height: 300px" class="mb-3 card-img-top"></div>
                     <div class="card-body">
                         <h5 class="card-title">
                             <%= campground.title %>
@@ -50,10 +50,10 @@
                         </p>
                         <% if (currentUser) {%>
                             <% if (currentUser._id.equals(campground.author._id)) { %>
-                                <a href="/campgrounds/<%=campground._id%>/edit" class="btn btn-success">Edit</a>
+                                <a href="/campgrounds/<%=campground._id%>/edit" class="btn btn-success block">Edit</a>
                                 <form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST"
                                     class="d-inline">
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger block">Delete</button>
                                 </form>
                                 <% } %>
                                     <% } %>
